@@ -15,5 +15,7 @@ pass_box.send_keys('test')
 submit_btn.click()
 
 time.sleep(5)
+link_register = driver.find_element_by_link_text("registration form")
+assert link_register.text == "registration form"
 
 driver.quit()
