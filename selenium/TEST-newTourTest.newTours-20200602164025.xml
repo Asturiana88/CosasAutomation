@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="newTourTest.newTours-20200602164025" tests="3" file="newTourTest.py" time="146.753" timestamp="2020-06-02T16:42:52" failures="0" errors="0" skipped="0">
+	<testcase classname="newTourTest.newTours" name="test_dropDowns" time="21.932" timestamp="2020-06-02T16:40:47" file="newTourTest.py" line="21">
+		<system-out><![CDATA[]]></system-out>
+		<system-err><![CDATA[]]></system-err>
+	</testcase>
+	<testcase classname="newTourTest.newTours" name="test_login_by_tabs" time="82.355" timestamp="2020-06-02T16:42:10" file="newTourTest.py" line="33">
+		<system-out><![CDATA[]]></system-out>
+		<system-err><![CDATA[]]></system-err>
+	</testcase>
+	<testcase classname="newTourTest.newTours" name="test_register" time="42.467" timestamp="2020-06-02T16:42:52" file="newTourTest.py" line="27">
+		<system-out><![CDATA[]]></system-out>
+		<system-err><![CDATA[]]></system-err>
+	</testcase>
+</testsuite>

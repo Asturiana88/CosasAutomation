@@ -1,31 +1,33 @@
 import unittest
 from selenium import webdriver
 import time
+from pageIndex import PageIndex
+from pageItems import PageItems
 
 class SearchCases(unittest.TestCase):
+
+    def setUp(self): # for eachTest
+     self.driver = webdriver.Chrome('Chromedriver.exe')
+     self.driver.get('http://automationpractice.com/index.php')
+     self.indexPage = PageIndex(self.driver)
+     self.itemPage = PageItems(self.driver)
+
     
     def test_search_no_elements(self):
-     driver = webdriver.Chrome('Chromedriver.exe')
-     driver.get('http://automationpractice.com/index.php')
-     driver.find_element_by_id('search_query_top').send_keys('hola')
-     driver.find_element_by_name('submit_search').click()   
+     self.indexPage.search('hola') 
      time.sleep(2)
-     result = driver.find_element_by_xpath('//*[@id="center_column"]/p').text
-     expected_result = 'No results were found for your search "hola"'
-     self.assertEqual(result, expected_result)
+     self.assertEqual(self.itemPage.return_no_element_text(), 'No results were found for your search "hola"')
 
-     driver.close()
-     driver.quit()
 
     def test_search_find_dresses(self):
-     driver = webdriver.Chrome('Chromedriver.exe')
-     driver.get('http://automationpractice.com/index.php')
-     driver.find_element_by_id('search_query_top').send_keys('dress')
-     driver.find_element_by_name('submit_search').click()   
+     self.indexPage.search('dress')  
      time.sleep(2)
-     result = driver.find_element_by_xpath('//*[@id="center_column"]/h1/span[1]').text
-     expected_result = "DRESS"
-     self.assertTrue(expected_result in result)
+     self.assertTrue('DRESS' in self.itemPage.return_section_title())
+
+
+    def tearDown(self):
+                    self.driver.close()
+     self.driver.quit()
 
 
 if __name__ == "__main__":
