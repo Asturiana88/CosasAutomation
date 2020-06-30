@@ -10,7 +10,7 @@ from utils import get_driver
 class SearchIndex(unittest.TestCase):
 
     def setUp(self):
-        #self.driver = webdriver.Chrome('Chromedriver.exe')
+        self.driver = webdriver.Chrome('Chromedriver.exe')
         self.driver = get_driver()
         self.driver.get(PAGE_URL)
         self.pagina_inicio = PageIndex(self._wait_for_elem)
